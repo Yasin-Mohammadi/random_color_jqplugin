@@ -1,4 +1,3 @@
-
 (function ($) {
 	
 	$.fn.randcolor = function(options){
@@ -23,17 +22,17 @@
 		}
 
 		
-
-		setInterval(() => {
-			var colorbg = randcolor(settings.color1, settings.color2);
-			var color = randcolor(settings.color1, settings.color2);
-			if(settings['bg']==true)
-				this.css('background-color', 'rgb('+colorbg.r+','+colorbg.g+','+colorbg.b+')');
-			if(settings['color'] == true)
-				this.css('color', 'rgb('+color.r+','+color.g+','+color.b+')');
-		}, settings['speed']);
-
-		return this;
+		return this.each(function () {
+			setInterval(() => {
+				var colorbg = randcolor(settings.color1, settings.color2);
+				var color = randcolor(settings.color1, settings.color2);
+				if(settings['bg']==true)
+					$(this).css('background-color', 'rgb('+colorbg.r+','+colorbg.g+','+colorbg.b+')');
+				if(settings['color'] == true)
+					$(this).css('color', 'rgb('+color.r+','+color.g+','+color.b+')');
+			}, settings['speed']);
+		});
+		
 	}	
 }(jQuery))
 
